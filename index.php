@@ -79,20 +79,8 @@
                             -->
                             
                         </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log in <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-home-1.html">Blog Home 1</a>
-                            </li>
-                            <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="login.php">Log in</a>
                     </li>
                     <!--
                     <li class="dropdown">
@@ -170,18 +158,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    책 추천 부분
+                    추천 도서
                     <?php
-                    echo "ㅇㅇ" ;
-                    $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                    // echo "ㅇㅇ" ;
+                    // $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
                     
-                    $query = "select * from sampletable";
-                    $result = mysqli_query($mysql_handle, $query);
-                    $row = mysqli_num_rows($result);
-                    echo "<br>";
-                    while($row = mysqli_fetch_assoc($result)){
-                        echo "id : ".$row["id"]. "- Name : ".$row["name"]."<br>";
-                    }
+                    // $query = "select * from sampletable";
+                    // $result = mysqli_query($mysql_handle, $query);
+                    // $row = mysqli_num_rows($result);
+                    // echo "<br>";
+                    // while($row = mysqli_fetch_assoc($result)){
+                    //     echo "id : ".$row["id"]. "- Name : ".$row["name"]."<br>";
+                    // }
                     ?>
                     
                 </h1>
@@ -189,11 +177,10 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> 책 추천 부분1 </h4>
+                        <h4><a href="book_info.html">미움받을 용기</a></h4>
                     </div>
                     <div class="panel-body">
-                        <p>추천 책1의 사진, 설명</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <a href="book_info.html"><img src="/book_images/braveToBlame.jpg" style="width:100%; height:100%"></a>
                     </div>
                 </div>
             </div>
