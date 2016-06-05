@@ -131,20 +131,57 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>ID</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" id="identity" required data-validation-required-message="Please enter your ID.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your phone number.">
+                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your Password.">
                         </div>
                     </div>
-
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Password (verify)</label>
+                            <input type="password" class="form-control" id="password_verify" required data-validation-required-message="Please enter your Password once more.">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Name</label>
+                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Age</label>
+                            <input type="number" min="0" step="1" class="form-control" id="age" required data-validation-required-message="Please enter your Age.">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Gender</label>
+                            <p>
+                            <input type="radio" id="male" name="chk_info" value="m"><label for="male">&nbsp; Male &nbsp; &nbsp; </label>
+                            <input type="radio" id="female" name="chk_info" value="f"><label for="female">&nbsp; Female  &nbsp; &nbsp; </label>
+                            <input type="radio" id="other" name="chk_info" value="o"><label for="other">&nbsp; Other &nbsp; &nbsp; </label>
+                            <p>
+                        </div>
+                    </div>
+                    
+                    
+                    
                     <div id="success"></div>
                     <!-- For success/fail messages -->
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
                 </form>
             </div>
 
@@ -157,7 +194,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Book Q 2016</p>
                 </div>
             </div>
         </footer>

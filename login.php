@@ -132,7 +132,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>ID</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" id="identity" required data-validation-required-message="Please enter your name.">
                             <p class="help-block"></p>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Book Q 2016</p>
                 </div>
             </div>
         </footer>
