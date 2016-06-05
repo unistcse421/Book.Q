@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BookQ 취향 분석 책 추천 서비스</title>
+    <title>BookQ - Book curation service</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -135,21 +135,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('/slide1.jpg');"></div>
+                <div class="fill" style="background-image:url('/main_notperfect.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>수정 가능</h2>
+                    <h2><!--캡션 입력 가능--></h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('/slide2.jpg');"></div>
+                <div class="fill" style="background-image:url('/main_spring.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2><!--캡션 입력 가능--></h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                <div class="fill" style="background-image:url('/main_boyiscoming.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 3</h2>
+                    <h2><!--캡션 입력 가능--></h2>
                 </div>
             </div>
         </div>
