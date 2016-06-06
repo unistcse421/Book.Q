@@ -48,25 +48,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="about.html">책 평가하기</a>
+                        <a href="#">책 평가하기</a>
                     </li>
                     <li>
-                        <a href="services.html">컬렉션</a>
+                        <a href="#">컬렉션</a>
                     </li>
                     <li>
-                        <a href="contact.html">책 검색하기</a>
+                        <a href="#">책 검색하기</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="portfolio-1-col.html">개인 정보 수정</a>
+                                <a href="#">개인 정보 수정</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">내가 읽은 책</a>
+                                <a href="#">내가 읽은 책</a>
                             </li>
                             <li>
-                                <a href="portfolio-3-col.html">내 친구</a>
+                                <a href="#">내 친구</a>
                             </li>
                             
                             <!--
