@@ -4,7 +4,7 @@
 <?php
     $final = array(array());
     $sum = array();
-    $input = 10; // input  here
+    $input = 7; // input  here
     $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
     mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
     mysqli_query($mysql_handle,"set session character_set_results=utf8;");

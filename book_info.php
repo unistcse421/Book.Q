@@ -325,7 +325,7 @@
                 <?php
                     $final = array(array());
                     $sum = array();
-                    $input = 10; // input  here
+                    $input = $book_id; // input  here
                     $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
                     mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
                     mysqli_query($mysql_handle,"set session character_set_results=utf8;");
@@ -356,12 +356,12 @@
                     $row = mysqli_num_rows($result);
                     $row = $row - 1;
                     rsort($final); // 역순정렬
-                    for($i = 0; $i < $row; $i++){
+                    
+                    for($i = 0; $i < 8; $i++){   // for($i = 0; $i < $row; $i++){
                         //echo $final[$i][0]. " : ". $final[$i][1] . "<br>"; // 순서대로 표시, $row 갯수만큼만 위에서 표시, 나머지는 없는값으로 사라짐 0 : 선호도, 1: 책 인덱스
                         //book_id : $final[$i][1]
                         $query = "select * from book where book_id = \"".$final[$i][1]."\"";
                         $result = mysqli_query($mysql_handle, $query);
-                        
                         
                         while($row2 = mysqli_fetch_assoc($result)){
                             $count++;
