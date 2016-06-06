@@ -120,7 +120,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">책 평가하기
+                <h1 class="page-header">책 평가하기(현재 사용되지 않는 페이지. 나중에 삭제)
                     <small>평가할 책을 선택하세요</small>
                 </h1>
 
@@ -159,14 +159,16 @@
                     
                 </h1>
             </div>
+            
+            
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><a href="book_info.html">미움받을 용기</a></h4>
+                        <h4><a href="book_info.php">미움받을 용기</a></h4>
                     </div>
-                    <div class="panel-body">
-                        <a href="book_info.html"><img src="/book_images/braveToBlame.jpg" style="width:100%; height:100%"></a>
-                    </div>
+                    <!--<div class="panel-body">-->
+                    <!--    <a href="book_info.php"><img src="/book_images/braveToBlame.jpg" style="width:100%; height:100%"></a>-->
+                    <!--</div>-->
                 </div>
             </div>
             <div class="col-md-3">
@@ -182,10 +184,10 @@
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><a href="book_info.html">미움받을 용기</a></h4>
+                        <h4><a href="book_info.php">미움받을 용기</a></h4>
                     </div>
                     <div class="panel-body">
-                        <a href="book_info.html"><img src="/book_images/braveToBlame.jpg" style="width:100%; height:100%"></a>
+                        <a href="book_info.php"><img src="/book_images/braveToBlame.jpg" style="width:100%; height:100%"></a>
                     </div>
                 </div>
             </div>
@@ -199,6 +201,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         
         

@@ -127,7 +127,7 @@
             </div>
         </div>
         <!-- /.row -->
-
+        
         <!-- Content Row -->
         <div class="row">
 
@@ -156,6 +156,54 @@
         </div>
         <!-- /.row -->
 
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    추천 도서 (검색된 도서)
+                    
+                </h1>
+            </div>
+            
+            <?php
+                if ($_REQUEST['keyword'] == NULL){
+                    echo " 검색 결과 없음 ";
+                }
+                else{
+                    $input= $_REQUEST['keyword'];
+                    $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                    mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_results=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_client=utf8;");
+                    $query = "select * from book where book_name like \"%" .  $input . "%\" or  tag like \"%" .  $input . "%\" or  writer like \"%" .  $input . "%\" or publisher like\"%" .  $input . "%\" or translator like\"%" .  $input . "%\" or nation like\"%" .  $input . "%\" " ;
+                    $result = mysqli_query($mysql_handle, $query);
+                    $row = mysqli_num_rows($result);
+                    $count = 0;
+                    while($row = mysqli_fetch_assoc($result)){
+                        $count++;
+                        echo 
+                        "<div class=\"col-md-3\">".
+                             "<div class=\"panel panel-default\">".
+                                "<div class=\"panel-heading\">".
+                                    "<h4><a href=\"book_info.php?book_id=".$row["book_id"]."\">".$row["book_name"]."</a></h4>".
+                                "</div>".
+                                "<div class=\"panel-body\">".
+                                    " <a href=\"book_info.php?book_id=".$row["book_id"]."\"><img src=".$row["picaddress"].
+                                    " style=\"width:100%; height:100%\"></a>".
+                                 "</div>".
+                            "</div>".
+                        "</div>";
+                        if($count == 4) {   // 이쁘게 정렬하기
+                            echo "　";
+                            echo "<br>";
+                            echo "<br>";
+                            echo "<br>";
+                            $count = 0;
+                        }
+                    }
+                }
+            ?>
+        </div>
         <hr>
 
         <!-- Footer -->
@@ -176,41 +224,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     
-    <?php
-        echo $_REQUEST['keyword'];  // 위에 검색에서 받은 값은 $_REQUEST['keyword'] 에 저장 됨
-        if ($_REQUEST['keyword'] == NULL){
-            echo " 빈 칸 ";
-        }
-        else{
-        $input= $_REQUEST['keyword'];
-        $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
-        mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
-        mysqli_query($mysql_handle,"set session character_set_results=utf8;");
-        mysqli_query($mysql_handle,"set session character_set_client=utf8;");
-        $query = "select * from book where book_name like \"%" .  $input . "%\"" ;
-        $query2 = "select * from book where tag like \"%" .  $input . "%\"" ;
-        $query3 = "select * from book where writer like \"%" .  $input . "%\"" ;
-        echo $query. "<br>";
-        echo $query2. "<br>";
-        echo $query3. "<br>";
-        $result = mysqli_query($mysql_handle, $query);
-        $result2 = mysqli_query($mysql_handle, $query2);
-        $result3 = mysqli_query($mysql_handle, $query3);
-        $row = mysqli_num_rows($result);
-        while($row = mysqli_fetch_assoc($result)){
-             echo "book_id : " . $row["book_name"]. "<br>" .  "book_Name : ".$row["tag"]. "<br>";
-             <a href="#"><img src=$row["picaddress"] style="width:100%; height:100%"></a>
-             }
-        while($row = mysqli_fetch_assoc($result2)){
-             echo "book_id : " . $row["book_name"]. "<br>" .  "book_Name : ".$row["tag"]. "<br>";
-             <a href="#"><img src=$row["picaddress"] style="width:100%; height:100%"></a>
-             }
-        while($row = mysqli_fetch_assoc($result3)){
-             echo "book_id : " . $row["book_name"]. "<br>" .  "book_Name : ".$row["tag"]. "<br>";
-             <a href="#"><img src=$row["picaddress"] style="width:100%; height:100%"></a>
-             }
-        }
-    ?>
+    <!-- 여기있던 php 코드는 temp_search.php 로 옮겨둠 -->
+    
     
 </body>
 

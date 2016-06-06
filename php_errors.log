@@ -1,1 +1,133 @@
 [06-Jun-2016 10:28:23 UTC] PHP Parse error:  syntax error, unexpected '$mysql_handle' (T_VARIABLE) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 4
+[06-Jun-2016 13:17:52 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 16
+[06-Jun-2016 13:18:08 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 16
+[06-Jun-2016 13:18:13 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 16
+[06-Jun-2016 13:18:38 UTC] PHP Parse error:  syntax error, unexpected '"\", "' (T_CONSTANT_ENCAPSED_STRING) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 16
+[06-Jun-2016 13:19:11 UTC] PHP Parse error:  syntax error, unexpected '"\", "' (T_CONSTANT_ENCAPSED_STRING) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 17
+[06-Jun-2016 13:19:19 UTC] PHP Parse error:  syntax error, unexpected '"\", "' (T_CONSTANT_ENCAPSED_STRING) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 21
+[06-Jun-2016 13:22:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 19
+[06-Jun-2016 13:22:06 UTC] PHP Stack trace:
+[06-Jun-2016 13:22:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:22:06 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:19
+[06-Jun-2016 13:23:03 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 19
+[06-Jun-2016 13:23:03 UTC] PHP Stack trace:
+[06-Jun-2016 13:23:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:23:03 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:19
+[06-Jun-2016 13:23:03 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 21
+[06-Jun-2016 13:23:03 UTC] PHP Stack trace:
+[06-Jun-2016 13:23:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:23:03 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:21
+[06-Jun-2016 13:23:43 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 19
+[06-Jun-2016 13:23:43 UTC] PHP Stack trace:
+[06-Jun-2016 13:23:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:23:43 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:19
+[06-Jun-2016 13:24:23 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 18
+[06-Jun-2016 13:24:23 UTC] PHP Stack trace:
+[06-Jun-2016 13:24:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:24:23 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:18
+[06-Jun-2016 13:24:23 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 20
+[06-Jun-2016 13:24:23 UTC] PHP Stack trace:
+[06-Jun-2016 13:24:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:24:23 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:20
+[06-Jun-2016 13:24:49 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 21
+[06-Jun-2016 13:24:49 UTC] PHP Stack trace:
+[06-Jun-2016 13:24:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:24:49 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:21
+[06-Jun-2016 13:24:49 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 23
+[06-Jun-2016 13:24:49 UTC] PHP Stack trace:
+[06-Jun-2016 13:24:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:24:49 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:23
+[06-Jun-2016 13:25:01 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 21
+[06-Jun-2016 13:25:01 UTC] PHP Stack trace:
+[06-Jun-2016 13:25:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:25:01 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:21
+[06-Jun-2016 13:25:01 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 23
+[06-Jun-2016 13:25:01 UTC] PHP Stack trace:
+[06-Jun-2016 13:25:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 13:25:01 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:23
+[06-Jun-2016 14:01:53 UTC] PHP Parse error:  syntax error, unexpected '.03' (T_DNUMBER) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 12
+[06-Jun-2016 14:02:33 UTC] PHP Parse error:  syntax error, unexpected '.03' (T_DNUMBER) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 12
+[06-Jun-2016 14:02:35 UTC] PHP Parse error:  syntax error, unexpected '.03' (T_DNUMBER) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 12
+[06-Jun-2016 14:02:59 UTC] PHP Parse error:  syntax error, unexpected '.03' (T_DNUMBER) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 12
+[06-Jun-2016 14:03:04 UTC] PHP Parse error:  syntax error, unexpected '.03' (T_DNUMBER) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 12
+[06-Jun-2016 14:14:59 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:14:59 UTC] PHP Stack trace:
+[06-Jun-2016 14:14:59 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:14:59 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:16:38 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:16:38 UTC] PHP Stack trace:
+[06-Jun-2016 14:16:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:16:38 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:16:38 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:16:38 UTC] PHP Stack trace:
+[06-Jun-2016 14:16:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:16:38 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:17:04 UTC] PHP Parse error:  syntax error, unexpected '>' in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 25
+[06-Jun-2016 14:17:15 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:17:15 UTC] PHP Stack trace:
+[06-Jun-2016 14:17:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:17:15 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:17:15 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:17:15 UTC] PHP Stack trace:
+[06-Jun-2016 14:17:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:17:15 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:18:36 UTC] PHP Catchable fatal error:  Object of class mysqli_result could not be converted to string in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 6
+[06-Jun-2016 14:18:36 UTC] PHP Stack trace:
+[06-Jun-2016 14:18:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/recommand_book.php:0
+[06-Jun-2016 14:19:49 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:19:49 UTC] PHP Stack trace:
+[06-Jun-2016 14:19:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:19:49 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:19:49 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:19:49 UTC] PHP Stack trace:
+[06-Jun-2016 14:19:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:19:49 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:28:53 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:28:53 UTC] PHP Stack trace:
+[06-Jun-2016 14:28:53 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:28:53 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:28:53 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:28:53 UTC] PHP Stack trace:
+[06-Jun-2016 14:28:53 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:28:53 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:29:35 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:29:35 UTC] PHP Stack trace:
+[06-Jun-2016 14:29:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:29:35 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:29:35 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:29:35 UTC] PHP Stack trace:
+[06-Jun-2016 14:29:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:29:35 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:30:01 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:30:01 UTC] PHP Stack trace:
+[06-Jun-2016 14:30:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:30:01 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:30:01 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:30:01 UTC] PHP Stack trace:
+[06-Jun-2016 14:30:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:30:01 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:30:30 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:30:30 UTC] PHP Stack trace:
+[06-Jun-2016 14:30:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:30:30 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:30:30 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:30:30 UTC] PHP Stack trace:
+[06-Jun-2016 14:30:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:30:30 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 14:33:04 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 24
+[06-Jun-2016 14:33:04 UTC] PHP Stack trace:
+[06-Jun-2016 14:33:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:33:04 UTC] PHP   2. mysqli_num_rows() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:24
+[06-Jun-2016 14:33:04 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 14:33:04 UTC] PHP Stack trace:
+[06-Jun-2016 14:33:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:0
+[06-Jun-2016 14:33:04 UTC] PHP   2. mysqli_fetch_assoc() /home/ubuntu/workspace/book_to_book_gz/rate_book.php:26
+[06-Jun-2016 15:23:39 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 26
+[06-Jun-2016 15:25:41 UTC] PHP Parse error:  syntax error, unexpected 'uncle' (T_STRING) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 27
+[06-Jun-2016 16:06:17 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 11
+[06-Jun-2016 16:06:41 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 11
+[06-Jun-2016 16:07:38 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 11
+[06-Jun-2016 16:07:53 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 11
+[06-Jun-2016 16:08:20 UTC] PHP Parse error:  syntax error, unexpected 'apple' (T_STRING), expecting ')' in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 3
+[06-Jun-2016 16:12:54 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/book_to_book_gz/recommand_book.php on line 3
+[06-Jun-2016 17:54:31 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 59

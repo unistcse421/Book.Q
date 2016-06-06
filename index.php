@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 
+<?php
+    session_start();
+    $user_id = $_SESSION['user_id'];
+    $user_name = $_SESSION['user_name'];
+?>
 <html lang="en">
 
 <head>
@@ -56,8 +61,12 @@
                     <li>
                         <a href="/search.php">책 검색하기</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>
+                    
+                    <?php
+                    if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
+                    ?>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $_SESSION['user_name']?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#">개인 정보 수정</a>
@@ -68,42 +77,19 @@
                             <li>
                                 <a href="#">내 친구</a>
                             </li>
-                            
-                            <!--
                             <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                                <a href="logout.php">Log out</a>
                             </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                            -->
-                            
                         </ul>
-                    <li>
+                    <?php
+                    }else{
+                    ?>
+                        <li>
                         <a href="login.php">Log in</a>
-                    </li>
-                    <!--
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -159,53 +145,47 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
                     추천 도서
-                    <?php
-                    // echo "ㅇㅇ" ;
-                    // $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
-                    
-                    // $query = "select * from sampletable";
-                    // $result = mysqli_query($mysql_handle, $query);
-                    // $row = mysqli_num_rows($result);
-                    // echo "<br>";
-                    // while($row = mysqli_fetch_assoc($result)){
-                    //     echo "id : " . $row["id"] .  "- Name : " . $row["name"]."<br>";
-                    // }
-                    ?>
                     
                 </h1>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><a href="book_info.html">미움받을 용기</a></h4>
-                    </div>
-                    <div class="panel-body">
-                        <a href="book_info.html"><img src="/book_images/braveToBlame.jpg" style="width:100%; height:100%"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><a href="#">칼의 노래</a></h4>
-                    </div>
-                    <div class="panel-body">
-                        <a href="#"><img src="/book_images/songOfsword.jpg" style="width:100%; height:100%"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> 친구 추천 부분 </h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>추천 친구 정보</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            
+            <?php
+                
+                $input= $_REQUEST[' '];
+                $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
+                mysqli_query($mysql_handle,"set session character_set_results=utf8;");
+                mysqli_query($mysql_handle,"set session character_set_client=utf8;");
+                $query = "select * from book where book_name like \"%" .  $input . "%\" or  tag like \"%" .  $input . "%\" or  writer like \"%" .  $input . "%\" or publisher like\"%" .  $input . "%\" or translator like\"%" .  $input . "%\" or nation like\"%" .  $input . "%\" " ;
+                $result = mysqli_query($mysql_handle, $query);
+                $row = mysqli_num_rows($result);
+                $count = 0;
+                while($row = mysqli_fetch_assoc($result)){
+                    $count++;
+                    echo 
+                    "<div class=\"col-md-3\">".
+                         "<div class=\"panel panel-default\">".
+                            "<div class=\"panel-heading\">".
+                                "<h4><a href=\"book_info.php?book_id=".$row["book_id"]."\">".$row["book_name"]."</a></h4>".
+                            "</div>".
+                            "<div class=\"panel-body\">".
+                                " <a href=\"book_info.php?book_id=".$row["book_id"]."\"><img src=".$row["picaddress"].
+                                " style=\"width:100%; height:100%\"></a>".
+                             "</div>".
+                        "</div>".
+                    "</div>";
+                    if($count == 4) {   // 이쁘게 정렬하기
+                        echo "　";
+                        echo "<br>";
+                        echo "<br>";
+                        echo "<br>";
+                        $count = 0;
+                    }
+                }
+                
+            ?>
         </div>
+        <hr>
         <!-- /.row -->
 
         <!-- Portfolio Section -->
