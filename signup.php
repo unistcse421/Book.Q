@@ -30,7 +30,11 @@
 </head>
 
 <body>
-
+    <?php
+        session_start();
+        $user_id = $_SESSION['user_id'];
+        $user_name = $_SESSION['user_name'];
+    ?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -48,16 +52,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/estimate.php">책 평가하기</a>
-                    </li>
-                    <li>
-                        <a href="#">컬렉션</a>
+                        <a href="#">테마별 추천</a>
                     </li>
                     <li>
                         <a href="/search.php">책 검색하기</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>
+                    
+                    <?php
+                    if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
+                    ?>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $_SESSION['user_name']?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#">개인 정보 수정</a>
@@ -68,42 +73,19 @@
                             <li>
                                 <a href="#">내 친구</a>
                             </li>
-                            
-                            <!--
                             <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                                <a href="logout.php">Log out</a>
                             </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                            -->
-                            
                         </ul>
-                    <li>
+                    <?php
+                    }else{
+                    ?>
+                        <li>
                         <a href="login.php">Log in</a>
-                    </li>
-                    <!--
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -127,43 +109,43 @@
         <div class="row">
             <div class="col-md-8">
 
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form action="/signup_ok.php" method="POST" >
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>ID</label>
-                            <input type="text" class="form-control" id="identity" required data-validation-required-message="Please enter your ID.">
+                            <input type="text" class="form-control" name="identity" required data-validation-required-message="Please enter your ID.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your Password.">
+                            <input type="password" class="form-control" name="password" required data-validation-required-message="Please enter your Password.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Password (verify)</label>
-                            <input type="password" class="form-control" id="password_verify" required data-validation-required-message="Please enter your Password once more.">
+                            <input type="password" class="form-control" name="password_verify" required data-validation-required-message="Please enter your Password once more.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" name="name" required data-validation-required-message="Please enter your name.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Email Address</label>
-                            <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                            <input type="email" class="form-control" name="email" required data-validation-required-message="Please enter your email address.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Age</label>
-                            <input type="number" min="0" step="1" class="form-control" id="age" required data-validation-required-message="Please enter your Age.">
+                            <input type="number" min="0" step="1" class="form-control" name="age" required data-validation-required-message="Please enter your Age.">
                         </div>
                     </div>
                     <div class="control-group form-group">

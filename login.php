@@ -30,7 +30,6 @@
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -48,16 +47,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/estimate.php">책 평가하기</a>
-                    </li>
-                    <li>
-                        <a href="#">컬렉션</a>
+                        <a href="#">테마별 추천</a>
                     </li>
                     <li>
                         <a href="/search.php">책 검색하기</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>
+                    
+                    <?php
+                    if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
+                    ?>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $_SESSION['user_name']?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#">개인 정보 수정</a>
@@ -68,42 +68,19 @@
                             <li>
                                 <a href="#">내 친구</a>
                             </li>
-                            
-                            <!--
                             <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                                <a href="logout.php">Log out</a>
                             </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                            -->
-                            
                         </ul>
-                    <li>
+                    <?php
+                    }else{
+                    ?>
+                        <li>
                         <a href="login.php">Log in</a>
-                    </li>
-                    <!--
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -132,7 +109,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>ID</label>
-                            <input type="text" class="form-control" name="user_id" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" name="user_acc" required data-validation-required-message="Please enter your name.">
                             <p class="help-block"></p>
                         </div>
                     </div>

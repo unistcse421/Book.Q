@@ -102,75 +102,42 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">책 검색하기
-                    <small>검색할 키워드를 입력하세요</small>
+                <h1 class="page-header">내가 읽은 책
+                    <small> 몇권이나 읽었나요?</small>
                 </h1>
 
             </div>
         </div>
         <!-- /.row -->
-        
-        <!-- Content Row -->
-        <div class="row">
-
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>책 검색</h4>
-                    <form action="/search.php" method="GET">
-                    <div class="input-group">
+        <?php
+            if($_SESSION["user_id"] == null) {  // if not log in
+                echo "<script> alert('로그인이 필요합니다.');history.back();</script>";
+                exit;
+            }else{
+                $now_user = $_SESSION["user_id"];
+                $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
+                mysqli_query($mysql_handle,"set session character_set_results=utf8;");
+                mysqli_query($mysql_handle,"set session character_set_client=utf8;");
+                $query = "select * from read_list where user_id = \"".$now_user."\"";
+                $read_list = mysqli_query($mysql_handle, $query);
                     
-                        <input type="text" class="form-control" name="keyword">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="SUBMIT"><i class="fa fa-search"></i></button>
-                        </span>
-                    
-                    </div>
-                    </form>
-                    <!-- /.input-group -->
-                </div>
-
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-        <!-- Marketing Icons Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    추천 도서 (검색된 도서)
-                    
-                </h1>
-            </div>
-            
-            <?php
-                if ($_REQUEST['keyword'] == NULL){
-                    echo " 검색 결과 없음 ";
-                }
-                else{
-                    $input= $_REQUEST['keyword'];
-                    $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
-                    mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
-                    mysqli_query($mysql_handle,"set session character_set_results=utf8;");
-                    mysqli_query($mysql_handle,"set session character_set_client=utf8;");
-                    $query = "select * from book where book_name like \"%" .  $input . "%\" or  tag like \"%" .  $input . "%\" or  writer like \"%" .  $input . "%\" or publisher like\"%" .  $input . "%\" or translator like\"%" .  $input . "%\" or nation like\"%" .  $input . "%\" " ;
+                while($row = mysqli_fetch_assoc($read_list)){
+                    //echo "<br>". $final[$i][0]. " : ". $final[$i][1]; // 순서대로 표시, $row 갯수만큼만 위에서 표시, 나머지는 없는값으로 사라짐 0 : 선호도, 1: 책 인덱스
+                    //book_id : $final[$i][1]
+                    $query = "select * from book where book_id = \"".$row['book_id']."\"";
                     $result = mysqli_query($mysql_handle, $query);
-                    $row = mysqli_num_rows($result);
-                    $count = 0;
-                    while($row = mysqli_fetch_assoc($result)){
+                    
+                    while($row2 = mysqli_fetch_assoc($result)){
                         $count++;
                         echo 
                         "<div class=\"col-md-3\">".
                              "<div class=\"panel panel-default\">".
                                 "<div class=\"panel-heading\">".
-                                    "<h4><a href=\"book_info.php?book_id=".$row["book_id"]."\">".$row["book_name"]."</a></h4>".
+                                    "<h4><a href=\"book_info.php?book_id=".$row2["book_id"]."\">".$row2["book_name"]."</a></h4>".
                                 "</div>".
                                 "<div class=\"panel-body\">".
-                                    " <a href=\"book_info.php?book_id=".$row["book_id"]."\"><img src=".$row["picaddress"].
+                                    " <a href=\"book_info.php?book_id=".$row2["book_id"]."\"><img src=".$row2["picaddress"].
                                     " style=\"width:100%; height:100%\"></a>".
                                  "</div>".
                             "</div>".
@@ -180,13 +147,20 @@
                             echo "<br>";
                             echo "<br>";
                             echo "<br>";
+                            echo "<br>";
+                            echo "<br>";
                             $count = 0;
                         }
                     }
                 }
-            ?>
+            }
+        ?>
+        <!-- Content Row -->
+        <div class="row">
+
+
         </div>
-        <hr>
+        <!-- /.row -->
 
         <!-- Footer -->
         <footer>

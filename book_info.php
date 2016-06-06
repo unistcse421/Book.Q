@@ -34,11 +34,14 @@
 
 <body>
     <?php
+        session_start();
         $user_id = $_SESSION['user_id'];
+        $user_name = $_SESSION['user_name'];
+        
         $book_id = $_REQUEST['book_id'];
         $rate = $_REQUEST['rating'];
         $comment = $_REQUEST['comment'];
-        if($book_id == NULL || $rate == NULL || $comment == NULL){}
+        if($user_id == NULL || $book_id == NULL || $rate == NULL || $comment == NULL){}
         else {
             $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
             mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
@@ -92,16 +95,17 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/estimate.php">책 평가하기</a>
-                    </li>
-                    <li>
-                        <a href="#">컬렉션</a>
+                        <a href="#">테마별 추천</a>
                     </li>
                     <li>
                         <a href="/search.php">책 검색하기</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>
+                    
+                    <?php
+                    if(isset($_SESSION['user_id']) && isset($_SESSION['user_name'])) {
+                    ?>
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $_SESSION['user_name']?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="#">개인 정보 수정</a>
@@ -112,42 +116,19 @@
                             <li>
                                 <a href="#">내 친구</a>
                             </li>
-                            
-                            <!--
                             <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                                <a href="logout.php">Log out</a>
                             </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                            -->
-                            
                         </ul>
-                    <li>
+                    <?php
+                    }else{
+                    ?>
+                        <li>
                         <a href="login.php">Log in</a>
-                    </li>
-                    <!--
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -337,33 +318,64 @@
 
                 <!-- Blog Categories Well -->
                 <div class="well">
-                    <h4>연관 추천 도서</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">연관 추천책1</a>
-                                </li>
-                                <li><a href="#">연관 추천책2</a>
-                                </li>
-                                <li><a href="#">연관 추천책3</a>
-                                </li>
-                                <li><a href="#">연관 추천책4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">연관 추천책5</a>
-                                </li>
-                                <li><a href="#">연관 추천책6</a>
-                                </li>
-                                <li><a href="#">연관 추천책7</a>
-                                </li>
-                                <li><a href="#">연관 추천책8</a>
-                                </li>
+                <h4>연관 추천 도서</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul>
+                <?php
+                    $final = array(array());
+                    $sum = array();
+                    $input = 10; // input  here
+                    $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                    mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_results=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_client=utf8;");
+                    $query = "select * from book where true";
+                    $result = mysqli_query($mysql_handle, $query);
+                    $row = mysqli_num_rows($result);
+                    while($row = mysqli_fetch_assoc($result)){ // 리셋
+                        $final[$row["book_id"]] = array(0, 0);
+                        $sum[$row["book_id"]] = 0;
+                    }
+                    $query_book_relation = "select * from book_to_book_relationship where book_id_1 = ".$input. ";";
+                    $result_book_relation = mysqli_query($mysql_handle, $query_book_relation);
+                    while($row_book_relation = mysqli_fetch_assoc($result_book_relation)){
+                        $sum[$row_book_relation["book_id_2"]] =  $sum[$row_book_relation["book_id_2"]] + $row_book_relation["weight"];
+                    }
+                    $query_book_relation = "select * from book_to_book_relationship where book_id_2 = ".$input. ";";
+                    $result_book_relation = mysqli_query($mysql_handle, $query_book_relation);
+                    while($row_book_relation = mysqli_fetch_assoc($result_book_relation)){
+                        $sum[$row_book_relation["book_id_1"]] =  $sum[$row_book_relation["book_id_1"]] + $row_book_relation["weight"];
+                    }
+                    $result = mysqli_query($mysql_handle, $query);
+                    $row = mysqli_num_rows($result);
+                    while($row = mysqli_fetch_assoc($result)){
+                        $final[$row["book_id"]] = array($sum[$row["book_id"]], $row["book_id"]);
+                    }
+                    $final[$input] = array(NULL, NULL); // delete itself
+                    $row = mysqli_num_rows($result);
+                    $row = $row - 1;
+                    rsort($final); // 역순정렬
+                    for($i = 0; $i < $row; $i++){
+                        //echo $final[$i][0]. " : ". $final[$i][1] . "<br>"; // 순서대로 표시, $row 갯수만큼만 위에서 표시, 나머지는 없는값으로 사라짐 0 : 선호도, 1: 책 인덱스
+                        //book_id : $final[$i][1]
+                        $query = "select * from book where book_id = \"".$final[$i][1]."\"";
+                        $result = mysqli_query($mysql_handle, $query);
+                        
+                        
+                        while($row2 = mysqli_fetch_assoc($result)){
+                            $count++;
+                            echo 
+                            "<li><a href=\"book_info.php?book_id=".$row2["book_id"]."\">".$row2["book_name"]."</a></li>";
+                            
+                        }
+                    }
+                ?>
+                
                             </ul>
                         </div>
                     </div>
+                    
                     <!-- /.row -->
                 </div>
 

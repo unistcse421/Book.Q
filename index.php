@@ -53,10 +53,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/estimate.php">책 평가하기</a>
-                    </li>
-                    <li>
-                        <a href="#">컬렉션</a>
+                        <a href="#">테마별 추천</a>
                     </li>
                     <li>
                         <a href="/search.php">책 검색하기</a>
@@ -72,7 +69,7 @@
                                 <a href="#">개인 정보 수정</a>
                             </li>
                             <li>
-                                <a href="#">내가 읽은 책</a>
+                                <a href="read_list.php">내가 읽은 책</a>
                             </li>
                             <li>
                                 <a href="#">내 친구</a>
@@ -150,39 +147,125 @@
             </div>
             
             <?php
-                
-                $input= $_REQUEST[' '];
-                $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
-                mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
-                mysqli_query($mysql_handle,"set session character_set_results=utf8;");
-                mysqli_query($mysql_handle,"set session character_set_client=utf8;");
-                $query = "select * from book where book_name like \"%" .  $input . "%\" or  tag like \"%" .  $input . "%\" or  writer like \"%" .  $input . "%\" or publisher like\"%" .  $input . "%\" or translator like\"%" .  $input . "%\" or nation like\"%" .  $input . "%\" " ;
-                $result = mysqli_query($mysql_handle, $query);
-                $row = mysqli_num_rows($result);
-                $count = 0;
-                while($row = mysqli_fetch_assoc($result)){
-                    $count++;
-                    echo 
-                    "<div class=\"col-md-3\">".
-                         "<div class=\"panel panel-default\">".
-                            "<div class=\"panel-heading\">".
-                                "<h4><a href=\"book_info.php?book_id=".$row["book_id"]."\">".$row["book_name"]."</a></h4>".
+                if($_SESSION["user_id"] == null) {  // if not log in
+                    $input= $_REQUEST[' '];
+                    $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                    mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_results=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_client=utf8;");
+                    $query = "select * from book where book_name like \"%" .  $input . "%\" or  tag like \"%" .  $input . "%\" or  writer like \"%" .  $input . "%\" or publisher like\"%" .  $input . "%\" or translator like\"%" .  $input . "%\" or nation like\"%" .  $input . "%\" " ;
+                    $result = mysqli_query($mysql_handle, $query);
+                    $row = mysqli_num_rows($result);
+                    $count = 0;
+                    while($row = mysqli_fetch_assoc($result)){
+                        $count++;
+                        echo 
+                        "<div class=\"col-md-3\">".
+                             "<div class=\"panel panel-default\">".
+                                "<div class=\"panel-heading\">".
+                                    "<h4><a href=\"book_info.php?book_id=".$row["book_id"]."\">".$row["book_name"]."</a></h4>".
+                                "</div>".
+                                "<div class=\"panel-body\">".
+                                    " <a href=\"book_info.php?book_id=".$row["book_id"]."\"><img src=".$row["picaddress"].
+                                    " style=\"width:100%; height:100%\"></a>".
+                                 "</div>".
                             "</div>".
-                            "<div class=\"panel-body\">".
-                                " <a href=\"book_info.php?book_id=".$row["book_id"]."\"><img src=".$row["picaddress"].
-                                " style=\"width:100%; height:100%\"></a>".
-                             "</div>".
-                        "</div>".
-                    "</div>";
-                    if($count == 4) {   // 이쁘게 정렬하기
-                        echo "　";
-                        echo "<br>";
-                        echo "<br>";
-                        echo "<br>";
-                        $count = 0;
+                        "</div>";
+                        if($count == 4) {   // 이쁘게 정렬하기
+                            echo "　";
+                            echo "<br>";
+                            echo "<br>";
+                            echo "<br>";
+                            $count = 0;
+                        }
                     }
                 }
                 
+                else {
+                    $now_user = $_SESSION["user_id"];
+                    $mysql_handle = mysqli_connect("127.0.0.1", "osteosarcoma", "","c9",3306);
+                    mysqli_query($mysql_handle,"set session character_set_connection=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_results=utf8;");
+                    mysqli_query($mysql_handle,"set session character_set_client=utf8;");
+                    $query = "select * from book where true";
+                    $result = mysqli_query($mysql_handle, $query);
+                    $query2 = "select * from read_list where user_id = ". $now_user ; // user_id
+                    $result2 = mysqli_query($mysql_handle, $query2);
+                    $counter2 = 0;  // 읽은 책 수
+                    $arrays2 = array(array());
+                    while($row = mysqli_fetch_assoc($result2)){
+                        $arrays2[$counter2] = array($row["book_id"], $row["rate"]); // array2 = number of read book, 평가한 정보가 이리로 넘어옴
+                        $counter2= $counter2 + 1; 
+                    }
+                    $final = array(array());
+                    $sum = array();
+                    $query = "select * from book;"; 
+                    $result = mysqli_query($mysql_handle, $query);
+                    while($row = mysqli_fetch_assoc($result)){ // 리셋
+                        $final[$row["book_id"]] = array(0, 0);
+                        $sum[$row["book_id"]] = 0;
+                    }
+                    for($num = 0; $num < $counter2; $num++){
+                        $temp = $arrays2[$num]; // 어레이 내부, 1번 평가부터 총 한 평가수까지 모두 체크
+                        //echo "<br> temp =". $temp[0]. ", ". $temp[1]. "<br>"; // temp[0] = team[0] = 평가한 책 번호, team[1] = 점수
+                        $query_book_relation = "select * from book_to_book_relationship where book_id_1 = ".$temp[0]. ";";
+                        $result_book_relation = mysqli_query($mysql_handle, $query_book_relation);
+                        while($row_book_relation = mysqli_fetch_assoc($result_book_relation)){
+                            $sum[$row_book_relation["book_id_2"]] = $sum[$row_book_relation["book_id_2"]] + ($temp[1] - 2.5) * ($row_book_relation["weight"]); 
+                        } //책 번호를 어레이 인덱스로 해서 1번부터 20번까지 사용, 정렬시 0번은 끝으로가 사라지므로 상관없음(1->2)
+                        $query_book_relation = "select * from book_to_book_relationship where book_id_2 = ".$temp[0]. ";";
+                        $result_book_relation = mysqli_query($mysql_handle, $query_book_relation);
+                        while($row_book_relation = mysqli_fetch_assoc($result_book_relation)){
+                            $sum[$row_book_relation["book_id_1"]] = $sum[$row_book_relation["book_id_1"]] + ($temp[1] - 2.5) * ($row_book_relation["weight"]); 
+                        } // 리버스(2->1)
+                    }
+                    $query = "select * from book;";
+                    $result = mysqli_query($mysql_handle, $query);
+                    while($row = mysqli_fetch_assoc($result)){
+                        $final[$row["book_id"]] = array($sum[$row["book_id"]], $row["book_id"]);
+                    }//final = 출력용 변수
+                    $result = mysqli_query($mysql_handle, $query);
+                    $row = mysqli_num_rows($result);
+                    for($num = 0; $num < $counter2; $num++){
+                        $temp = $arrays2[$num];
+                        $final[$temp[0]] = array(NULL, NULL);
+                        $row = $row - 1;
+                    }
+                    rsort($final); // 역순정렬
+                    
+                    
+                    for($i = 0; $i < $row; $i++){
+                        //echo "<br>". $final[$i][0]. " : ". $final[$i][1]; // 순서대로 표시, $row 갯수만큼만 위에서 표시, 나머지는 없는값으로 사라짐 0 : 선호도, 1: 책 인덱스
+                        //book_id : $final[$i][1]
+                        $query = "select * from book where book_id = \"".$final[$i][1]."\"";
+                        $result = mysqli_query($mysql_handle, $query);
+                        
+                        while($row2 = mysqli_fetch_assoc($result)){
+                            $count++;
+                            echo 
+                            "<div class=\"col-md-3\">".
+                                 "<div class=\"panel panel-default\">".
+                                    "<div class=\"panel-heading\">".
+                                        "<h4><a href=\"book_info.php?book_id=".$row2["book_id"]."\">".$row2["book_name"]."</a></h4>".
+                                    "</div>".
+                                    "<div class=\"panel-body\">".
+                                        " <a href=\"book_info.php?book_id=".$row2["book_id"]."\"><img src=".$row2["picaddress"].
+                                        " style=\"width:100%; height:100%\"></a>".
+                                     "</div>".
+                                "</div>".
+                            "</div>";
+                            if($count == 4) {   // 이쁘게 정렬하기
+                                echo "　";
+                                echo "<br>";
+                                echo "<br>";
+                                echo "<br>";
+                                echo "<br>";
+                                echo "<br>";
+                                $count = 0;
+                            }
+                        }
+                    }
+                }
             ?>
         </div>
         <hr>
