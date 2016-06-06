@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>BookQ - 임시</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,9 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!-- Custom CSS -->
+    <link href="css/rating-stars.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -117,43 +120,51 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Log in
-                    <small><a href="signup.php">Sign up</a></small>
+                <h1 class="page-header">책 검색하기
+                    <small>검색할 키워드를 입력하세요</small>
                 </h1>
+
             </div>
         </div>
-
-        <!-- Contact Form -->
-        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-        <div class="row">
-            <div class="col-md-8">
-
-                <form name="sentMessage" id="contactForm" novalidate>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>ID</label>
-                            <input type="text" class="form-control" id="identity" required data-validation-required-message="Please enter your name.">
-                            <p class="help-block"></p>
-                        </div>
-                    </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Password</label>
-                            <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your phone number.">
-                        </div>
-                    </div>
-
-                    <div id="success"></div>
-                    <!-- For success/fail messages -->
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </form>
-            </div>
-
-        </div>
-        
         <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>책 검색</h4>
+                    <form action="/form_prac.php" method="GET">
+                    <div class="input-group">
+                    
+                        <input type="text" class="form-control" name="keyword">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="SUBMIT"><i class="fa fa-search"></i></button>
+                        </span>
+                    
+                    </div>
+                    </form>
+                    <!-- /.input-group -->
+                </div>
+
+            </div>
+            
+            <div>
+                <?php
+                echo $_REQUEST['keyword'];
+                
+                ?>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
         <hr>
-        
+
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -166,13 +177,14 @@
     </div>
     <!-- /.container -->
 
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    
 
+    
 </body>
 
 </html>

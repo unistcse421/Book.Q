@@ -48,13 +48,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">책 평가하기</a>
+                        <a href="/estimate.php">책 평가하기</a>
                     </li>
                     <li>
                         <a href="#">컬렉션</a>
                     </li>
                     <li>
-                        <a href="#">책 검색하기</a>
+                        <a href="/search.php">책 검색하기</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>

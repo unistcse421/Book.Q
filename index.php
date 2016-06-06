@@ -48,13 +48,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">책 평가하기</a>
+                        <a href="/estimate.php">책 평가하기</a>
                     </li>
                     <li>
                         <a href="#">컬렉션</a>
                     </li>
                     <li>
-                        <a href="#">책 검색하기</a>
+                        <a href="/search.php">책 검색하기</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My page <b class="caret"></b></a>
@@ -123,19 +123,19 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('/main_notperfect.jpg');"></div>
+                <div class="fill" style="background-image:url('/carousel/main_notperfect.jpg');"></div>
                 <div class="carousel-caption">
                     <h2><!--캡션 입력 가능--></h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('/main_spring.jpg');"></div>
+                <div class="fill" style="background-image:url('/carousel/main_namiya.jpg');"></div>
                 <div class="carousel-caption">
                     <h2><!--캡션 입력 가능--></h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('/main_boyiscoming.jpg');"></div>
+                <div class="fill" style="background-image:url('/carousel/main_boyiscoming.jpg');"></div>
                 <div class="carousel-caption">
                     <h2><!--캡션 입력 가능--></h2>
                 </div>
@@ -168,7 +168,7 @@
                     // $row = mysqli_num_rows($result);
                     // echo "<br>";
                     // while($row = mysqli_fetch_assoc($result)){
-                    //     echo "id : ".$row["id"]. "- Name : ".$row["name"]."<br>";
+                    //     echo "id : " . $row["id"] .  "- Name : " . $row["name"]."<br>";
                     // }
                     ?>
                     
@@ -187,11 +187,10 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> 책 추천 부분2 </h4>
+                        <h4><a href="#">칼의 노래</a></h4>
                     </div>
                     <div class="panel-body">
-                        <p>추천 책2의 사진, 설명</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <a href="#"><img src="/book_images/songOfsword.jpg" style="width:100%; height:100%"></a>
                     </div>
                 </div>
             </div>

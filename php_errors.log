@@ -1,0 +1,1 @@
+[06-Jun-2016 10:28:23 UTC] PHP Parse error:  syntax error, unexpected '$mysql_handle' (T_VARIABLE) in /home/ubuntu/workspace/book_to_book_gz/rate_book.php on line 4
