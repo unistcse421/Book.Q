@@ -55,7 +55,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">테마별 추천</a>
+                        <a href="/thame_search.php">테마별 추천</a>
                     </li>
                     <li>
                         <a href="/search.php">책 검색하기</a>
